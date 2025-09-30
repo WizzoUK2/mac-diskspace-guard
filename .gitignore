@@ -1,0 +1,33 @@
+# mac-diskspace-guard
+
+# Logs
+*.log
+*.out
+*.err
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Thumbnails
+._*
+
+# macOS trash
+.Trashes
+.Spotlight-V100
+.fseventsd
+
+# Vim / Emacs / VSCode swap files
+*~
+*.swp
+*.swo
+*.swn
+*.bak
+
+# Node / Python / misc environments (if you ever expand tooling)
+node_modules/
+venv/
+.env
