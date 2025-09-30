@@ -23,3 +23,7 @@ Thanks for considering contributing! 🎉
 - Write clear commit messages.
 - Update the README if you add/change functionality.
 - Test your changes locally before submitting.
+
+## Questions?
+
+Open an [issue](../../issues) and let’s discuss!
