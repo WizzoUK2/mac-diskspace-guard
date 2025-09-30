@@ -137,6 +137,22 @@ if [[ "$RUN_CLEANMYMAC" -eq 1 ]]; then
   fi
 fi
 
+# --- Step 6: Cloud eviction (File Provider clouds) ---
+# Evict the largest materialised files from iCloud/Dropbox/GDrive/OneDrive if still low
+if [[ "$after_free_gb" -lt "$THRESHOLD_GB" ]]; then
+  if command -v "$HOME/bin/cloudspace_evict.sh" >/dev/null 2>&1; then
+    log "Space still low; attempting File Provider eviction of large files."
+    "$HOME/bin/cloudspace_evict.sh" --apply | tee -a "$LOGFILE"
+    sleep 5
+    # Recalculate after eviction
+    after_free="$(free_bytes)"
+    after_free_gb="$(human_free)"
+    delta_gb=$(( after_free_gb - before_free_gb ))
+  else
+    log "cloudspace_evict.sh not found; skipping eviction."
+  fi
+fi
+
 # --- Report freed space ---
 sleep 5  # give the system a moment to reclaim space
 after_free="$(free_bytes)"
