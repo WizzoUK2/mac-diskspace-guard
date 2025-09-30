@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.craig.diskspace-guard</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>-lc</string>
+    <string>~/bin/diskspace_guard.sh --threshold-gb 60 --percent-free 15</string>
+  </array>
+
+  <!-- Run at login and every 15 minutes -->
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StartInterval</key>
+  <integer>900</integer>
+
+  <!-- Log files -->
+  <key>StandardOutPath</key>
+  <string>${HOME}/Library/Logs/diskspace-guard.log</string>
+  <key>StandardErrorPath</key>
+  <string>${HOME}/Library/Logs/diskspace-guard.log</string>
+
+  <!-- Environment PATH so tmutil/open/osascript resolve -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+</dict>
+</plist>
