@@ -103,5 +103,3 @@ If you saved the script somewhere else, update the `ProgramArguments` path accor
 
 MIT — use, modify, and share freely.
 Contributions welcome! 🎉
-
-``'
